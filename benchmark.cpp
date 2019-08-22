@@ -5,6 +5,7 @@
 
 #include "benchmark/hpp/benchmark_aco.hpp"
 #include "benchmark/hpp/benchmark_asg.hpp"
+#include "benchmark/hpp/benchmark_ass.hpp"
 #include "benchmark/hpp/benchmark_bs1.hpp"
 #include "benchmark/hpp/benchmark_bs2.hpp"
 #include "benchmark/hpp/benchmark_cls.hpp"
@@ -109,6 +110,7 @@ ImmediateData run_all_benchmarks(std::size_t begin, std::size_t end)
 
         run_benchmark_class<Aco>(records, N);
         run_benchmark_class<Asg>(records, N);
+        run_benchmark_class<Ass>(records, N);
         run_benchmark_class<Bs1>(records, N);
         run_benchmark_class<Bs2>(records, N);
         run_benchmark_class<Cls>(records, N);
@@ -148,6 +150,7 @@ void run_all_validation_tests(std::size_t N)
 {
     Aco::validate_assert(N);
     Asg::validate_assert(N);
+    Ass::validate_assert(N);
     Bs1::validate_assert(N);
     Bs2::validate_assert(N);
     Cls::validate_assert(N);
@@ -250,6 +253,7 @@ void output_metrics_report(T& ost)
         << "| ------- |:----------:|:-----------:| -------------- |:-----------:|\n";
     output_metrics_report_row<Aco>(ost);
     output_metrics_report_row<Asg>(ost);
+    output_metrics_report_row<Ass>(ost);
     output_metrics_report_row<Bs1>(ost);
     output_metrics_report_row<Bs2>(ost);
     output_metrics_report_row<Cls>(ost);
